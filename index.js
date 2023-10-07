@@ -1,10 +1,11 @@
 const express = require('express');
 const app = express();
 const { port } = require('./config');
-const menuRouter = require('./routes/menu');
-
+const menuRouter = require('./routes/api-menu');
+//db
+require('./db/mongoose');
 //routes
-app.use('/', menuRouter)
+app.use('/', menuRouter);
 
 //server
 app.listen(port, () => {
