@@ -18,7 +18,4 @@ router.put('/menu_items/:id', menuActions.updateMenuItem);
 //delete menu item
 router.delete('/menu_items/:id', menuActions.deleteMenuItem);
 
-
-
-
 module.exports = router;

@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const { port } = require('./config');
 const menuRouter = require('./routes/api-menu');
+const userRouter = require('./routes/users-api');
 const bodyParser = require('body-parser')
 //db
 require('./db/mongoose');
@@ -9,8 +10,11 @@ require('./db/mongoose');
 //parsers (Do odczytu kontentu)
 app.use(bodyParser.json());
 
-//routes
+//routes menu
 app.use('/api', menuRouter);
+
+//routes users
+app.use('/api', userRouter);
 
 //server
 app.listen(port, () => {
