@@ -1,18 +1,26 @@
 GET http://localhost:3000/api/menu_items
 ###
-GET http://localhost:3000/api/menu_items/22
+GET http://localhost:3000/api/menu_items/65228d79cd5110d9fbe3abe6
 ###
 
 POST http://localhost:3000/api/menu_items 
 Content-Type: application/json
 
 {
-    "name": "Pierogi ruskie",
-    "price": 12.99,
-    "ingredients": "Z ziemniakami i koperkiem",
+    
+    "price": 20.99,
+    "ingredients": "Z orzechami włoskimi",
+    "category": "deser"
+}
+###
+PUT  http://localhost:3000/api/menu_items/6522906cf37d6bf9cc579501
+Content-Type: application/json
+
+{
+    "name": "Pierogi Ukrainskie",
+    "price": 15.99,
+    "ingredients": "Z ziemniakami lub rodzynkami",
     "category": "obiad"
 }
 ###
-PUT  http://localhost:3000/api/menu_items/pomidor
-###
-DELETE http://localhost:3000/api/menu_items/pomidor
+DELETE http://localhost:3000/api/menu_items/652291f430135970a6608d54
