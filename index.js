@@ -3,13 +3,16 @@ const app = express();
 const { port } = require('./config');
 const menuRouter = require('./routes/api-menu');
 const userRouter = require('./routes/users-api');
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
+const cors = require('cors');
 //db
 require('./db/mongoose');
 
 //parsers (Do odczytu kontentu)
 app.use(bodyParser.json());
 
+//fix cors
+app.use(cors());
 //routes menu
 app.use('/api', menuRouter);
 
