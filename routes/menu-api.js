@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const menuActions = require('../actions/api/action-menu');
+const menuActions = require('../actions/api/menu-action');
 
 
 //get menu items

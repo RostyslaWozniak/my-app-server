@@ -1,4 +1,4 @@
-const MenuItem = require('../../db/models/model-menu');
+const MenuItem = require('../../db/models/menu-model');
 
 class MenuActions {
     
