@@ -1,12 +1,24 @@
-GET http://localhost:3000/api/user
+GET http://localhost:3001/api/order
+
 ###
 
-POST http://localhost:3000/api/user
+POST  http://localhost:3001/api/order
 Content-Type: application/json
 
 {
-    
-    "name": "Rostik",
-    "password": "22222"
+    "userName": "Rostik",
+    "order": [123, 321], 
+    "date": "12.05.2023",
+    "isOrderCompleted": false, 
+    "totalPrice": "35 zł"
 }
+###
 
+PATCH   http://localhost:3001/api/order/65295a86267183aeb067c407
+Content-Type: application/json
+
+{
+    "isOrderCompleted": false
+}
+###
+DELETE http://localhost:3001/api/order/65292a41eb031803a6f279c6

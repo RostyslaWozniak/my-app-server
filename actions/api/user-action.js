@@ -11,24 +11,69 @@ class UserActions {
         }
     }
 
+    async getUser(req, res){
+        try{
+            const user = await User.findById(req.params.id);
+            res.status(200).json(user);
+        } catch(err){
+            res.status(404).json({message: "Brak użutkownika z podanym ID"})
+        }
+    }
+   
     async saveUser(req, res){
-        const { name, password } = req.body;
+        const { name, password, isUserLogged } = req.body;
         const user = new User({
             name,
             password,
+            isUserLogged,
+            order: [], 
+            isOrderSended: false,
         })
         try{
             await user.save();
-            res.status(200).send('save user')
+            res.status(200).send(user)
         }catch(err){
             res.status(404).json({message: err.message})
         }
-        
     }
 
     async updateUser(req, res){
-        
-        res.send('update user')
+        const { name, password, isUserLogged, order, isOrderSended } = req.body;
+        try{
+            const user = await User.findById(req.params.id);
+            if(user == null){
+                return res.status(404).json({message: 'Brak  użytkownika z podanym ID'})
+            }
+            user.name = name ?? user.name;
+            user.password = password ?? user.password;
+            user.isUserLogged = isUserLogged ?? user.isUserLogged;
+            user.order = order ?? user.order;
+            user.isOrderSended = isOrderSended ?? user.isOrderSended;
+            await user.save();
+            res.status(201).json(user);
+        }catch(err){
+            res.status(500).json({message: err.message});
+        }
+    }
+
+    async editUser(req, res){
+        const { name, password, isUserLogged, order, isOrderSended } = req.body;
+        try{
+            const user = await User.findById(req.params.id);
+            if(user == null){
+                return res.status(404).json({message: 'Brak  użytkownika z podanym ID'})
+            }   
+            user.name = name ?? user.name;
+            user.password = password ?? user.password;
+            user.isUserLogged = isUserLogged ?? user.isUserLogged;
+            user.order = order ?? user.order;
+            user.isOrderSended = isOrderSended ?? user.isOrderSended;
+                
+            await user.save();
+            res.status(201).json(user);
+        }catch(err){
+                res.status(500).json({message: err.message});
+        }
     }
 
     async deleteUser(req, res){
