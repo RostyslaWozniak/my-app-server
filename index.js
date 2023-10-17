@@ -1,13 +1,16 @@
 const express = require('express');
-const app = express();
-const { port } = require('./config');
+const { port, hostname } = require('./config');
 const menuRouter = require('./routes/menu-api');
 const userRouter = require('./routes/users-api');
 const ordersRouter = require('./routes/orders-api');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+
+const app = express();
+
 //db
 require('./db/mongoose');
+
 
 //parsers (Do odczytu kontentu)
 app.use(bodyParser.json());
@@ -23,5 +26,5 @@ app.use('/api', userRouter);
 app.use('/api', ordersRouter)
 //server
 app.listen(port, () => {
-    console.log(`App is listening on port http://localhost:${port}`)
-})
+    console.log(`App is listening on port http://${hostname}:${port}`)
+});

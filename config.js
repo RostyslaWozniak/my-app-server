@@ -1,4 +1,6 @@
 module.exports = {
-    port: process.env.PORT || 3001,
-    database: process.env.DATABASE || 'mongodb://localhost/restaurant'
+    hostname: 'localhost',
+    port: process.env.port || 3001,
+    database: process.env.database || 'mongodb://localhost/restaurant'
+    
 }
