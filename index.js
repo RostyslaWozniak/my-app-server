@@ -5,12 +5,10 @@ const userRouter = require('./routes/users-api');
 const ordersRouter = require('./routes/orders-api');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+//db
 require('./db/mongoose');
 
 const app = express();
-
-//db
-
 
 //parsers (Do odczytu kontentu)
 app.use(bodyParser.json());
