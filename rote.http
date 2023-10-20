@@ -1,16 +1,16 @@
-GET http://localhost:3001/api/order
+GET http://localhost:3000/api/user
 
 ###
 
-POST  http://localhost:3001/api/order
+POST  http://localhost:3000/api/user
 Content-Type: application/json
 
 {
-    "userName": "Rostik",
-    "order": [123, 321], 
-    "date": "12.05.2023",
-    "isOrderCompleted": false, 
-    "totalPrice": "35 zł"
+    "name": "admin",
+    "password": "123",
+    "isUserLogged": false,
+    "order": [],
+    "isOrderSended": false 
 }
 ###
 

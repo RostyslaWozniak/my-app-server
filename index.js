@@ -1,5 +1,5 @@
 const express = require('express');
-const { port, hostname } = require('./config');
+const { port } = require('./config');
 const menuRouter = require('./routes/menu-api');
 const userRouter = require('./routes/users-api');
 const ordersRouter = require('./routes/orders-api');
@@ -26,5 +26,5 @@ app.use('/api', ordersRouter);
 
 //server
 app.listen(port, () => {
-    console.log(`App is listening on port http://${hostname}:${port}`)
+    console.log(`App is listening on port http://localhost:${port}`)
 });

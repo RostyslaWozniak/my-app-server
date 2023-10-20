@@ -21,4 +21,4 @@ router.put('/user/:id', userActions.editUser);
 //delete user
 router.delete('/user/:id', userActions.deleteUser);
 
-module.exports = router;
+module.exports = router;  
