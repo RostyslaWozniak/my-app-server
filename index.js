@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 //db
 require('./db/mongoose');
-
+ 
 const app = express();
 
 //parsers (Do odczytu kontentu)
